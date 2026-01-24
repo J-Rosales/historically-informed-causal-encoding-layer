@@ -1,0 +1,56 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/documents/specification-document"
+title: "SpecificationDocument"
+type: object
+required:
+  - type
+  - label
+  - timestamp
+  - metadata
+  - header
+  - sections
+properties:
+  type:
+    const: "SpecificationDocument"
+  label:
+    type: string
+  timestamp:
+    type: string
+    format: date-time
+  metadata:
+    $ref: ../shared/metadata.yaml
+  id:
+    type: string
+    format: uuid
+  refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+  header:
+    $ref: ../primitives/document-header.yaml
+  sections:
+    type: array
+    items:
+      type: object
+      required:
+        - heading
+        - summary
+      properties:
+        heading:
+          type: string
+        summary:
+          type: string
+        refs:
+          type: array
+          items:
+            type: string
+            format: uuid
+      additionalProperties: false
+
+  attributes:
+    type: object
+    additionalProperties: true
+patternProperties:
+  "^x-": {}
+additionalProperties: false

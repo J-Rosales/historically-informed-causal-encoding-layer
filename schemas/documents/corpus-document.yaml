@@ -1,0 +1,45 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/documents/corpus-document"
+title: "CorpusDocument"
+type: object
+required:
+  - type
+  - label
+  - timestamp
+  - metadata
+  - header
+  - scope
+  - entries
+properties:
+  type:
+    const: "CorpusDocument"
+  label:
+    type: string
+  timestamp:
+    type: string
+    format: date-time
+  metadata:
+    $ref: ../shared/metadata.yaml
+  id:
+    type: string
+    format: uuid
+  refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+  header:
+    $ref: ../primitives/document-header.yaml
+  scope:
+    type: string
+  entries:
+    type: array
+    items:
+      $ref: ../primitives/reference-node.yaml
+
+  attributes:
+    type: object
+    additionalProperties: true
+patternProperties:
+  "^x-": {}
+additionalProperties: false
