@@ -1,7 +1,16 @@
 # Schemas
 
-This directory is reserved for machine-readable schemas (e.g., JSON Schema) that define HICEL primitives and document kinds.
+This directory contains YAML-based schema files that define HICEL primitives and document kinds.
 
-Starter note:
-- Populate `schemas/` with schema files for each document kind and primitive.
-- Keep HIPF compatibility mappings in `schemas/compat/`.
+## Layout
+
+- `schemas/primitives/` holds one schema per primitive.
+- `schemas/documents/` holds one schema per document kind.
+- `schemas/shared/` contains shared schema fragments (e.g., metadata).
+- `schemas/compat/` stores HIPF compatibility references.
+
+## Notes
+
+- Schemas enforce required fields (`type`, `label`, `timestamp`, `metadata`) and UUID-only identifiers.
+- Extension fields must use the `x-` prefix.
+- Documentation for each schema is available under `docs/schemas/`.

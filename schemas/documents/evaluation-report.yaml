@@ -1,0 +1,40 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/documents/evaluation-report"
+title: "EvaluationReport"
+type: object
+required:
+  - type
+  - label
+  - timestamp
+  - metadata
+  - header
+  - evaluation
+properties:
+  type:
+    const: "EvaluationReport"
+  label:
+    type: string
+  timestamp:
+    type: string
+    format: date-time
+  metadata:
+    $ref: ../shared/metadata.yaml
+  id:
+    type: string
+    format: uuid
+  refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+  header:
+    $ref: ../primitives/document-header.yaml
+  evaluation:
+    $ref: ../primitives/evaluation-context.yaml
+
+  attributes:
+    type: object
+    additionalProperties: true
+patternProperties:
+  "^x-": {}
+additionalProperties: false

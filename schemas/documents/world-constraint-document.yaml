@@ -1,0 +1,42 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/documents/world-constraint-document"
+title: "WorldConstraintDocument"
+type: object
+required:
+  - type
+  - label
+  - timestamp
+  - metadata
+  - header
+  - constraints
+properties:
+  type:
+    const: "WorldConstraintDocument"
+  label:
+    type: string
+  timestamp:
+    type: string
+    format: date-time
+  metadata:
+    $ref: ../shared/metadata.yaml
+  id:
+    type: string
+    format: uuid
+  refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+  header:
+    $ref: ../primitives/document-header.yaml
+  constraints:
+    type: array
+    items:
+      $ref: ../primitives/constraint-profile.yaml
+
+  attributes:
+    type: object
+    additionalProperties: true
+patternProperties:
+  "^x-": {}
+additionalProperties: false

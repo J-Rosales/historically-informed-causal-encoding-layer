@@ -1,0 +1,33 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/primitives/resource-envelope"
+title: "ResourceEnvelope"
+type: object
+required:
+  - type
+  - label
+  - timestamp
+  - metadata
+properties:
+  type:
+    const: "ResourceEnvelope"
+  label:
+    type: string
+  timestamp:
+    type: string
+    format: date-time
+  metadata:
+    $ref: ../shared/metadata.yaml
+  id:
+    type: string
+    format: uuid
+  refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+  attributes:
+    type: object
+    additionalProperties: true
+patternProperties:
+  "^x-": {}
+additionalProperties: false
