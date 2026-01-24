@@ -1,0 +1,25 @@
+# Candidate Schema Primitives
+
+- DocumentHeader
+- ReferenceNode
+- EntityModel
+- InstitutionModel
+- BeliefRegimeModel
+- CultureModel
+- RegionAbstraction
+- TemporalMarker
+- TimelineEntry
+- PeriodizationIndex
+- StateSlice
+- ChangeEntry
+- DeltaEncoding
+- ConstraintProfile
+- CapabilityEnvelope
+- ResourceEnvelope
+- PressureObject
+- ConditionObject
+- CrisisObject
+- LatticeAnchor
+- LensModifier
+- EvaluationContext
+- DomainBinding
