@@ -63,13 +63,13 @@ $defs:
         type: array
         items:
           $ref: "#/$defs/channelMark"
-      flagged_failure_modes:
+      flagged_pitfalls:
         type: array
         items:
           type: string
           pattern: "^[a-z0-9][a-z0-9_-]*$"
         uniqueItems: true
-        description: "Keys of the lattice's failure_modes asserted for the subject."
+        description: "Keys of the lattice's pitfalls that the subject commits."
     additionalProperties: false
   channelMark:
     type: object

@@ -1,0 +1,19 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/compat/hipf/channel-scan-lattice"
+title: "HIPF channel-scan lattice profile"
+description: "Constrains LatticeAnchor to a HIPF channel-scan lattice (validators/CONSEQUENCE_LATTICES.md): shock triggers, channels to scan, typical pitfalls. Channel scans are soft validation; they do not model lattice state levels (validators/CONSEQUENCE_LATTICE_FRAMEWORK.md)."
+allOf:
+  - $ref: ../../primitives/lattice-anchor.yaml
+  - type: object
+    required:
+      - lattice_kind
+      - trigger_tags
+      - channels
+      - pitfalls
+    properties:
+      lattice_kind:
+        const: channel_scan
+      trigger_tags:
+        minItems: 1
+      channels:
+        minItems: 1

@@ -26,7 +26,7 @@ Defines the core structure for the `ChangeEntry` primitive. Use it to describe n
 ## Profiles
 
 - HIPF: `schemas/compat/hipf/change-entry.yaml` requires `entry_kind` ∈ `event`, `process`,
-  `structural_transformation`. Conditions and crises use `ConditionObject` / `CrisisObject`.
+  `structural_transformation`. Conditions and crises are derived entries and use `ConditionObject` / `CrisisObject`.
 
 ## References
 

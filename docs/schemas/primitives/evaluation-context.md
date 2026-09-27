@@ -21,10 +21,11 @@ Defines the core structure for the `EvaluationContext` primitive. Use it to desc
 - `verdict` (string) — qualitative outcome; vocabulary set by a compat profile
 - `rationale` (string) — human-readable explanation of the verdict
 - `lattice_scans` (list) — per-lattice channel scans:
-  - `lattice_ref` (UUID), `flagged_failure_modes` (lattice failure-mode keys)
+  - `lattice_ref` (UUID), `flagged_pitfalls` (keys of lattice pitfalls the subject commits)
   - `channel_marks`: `{channel_key, mark, immediate?, delayed?, mitigations?}`
   - `mitigations`: `{description, refs?}` where `refs` point to the structural basis
 
+`verdict` and `rationale` record the evaluation outcome alongside its inputs.
 No probability, score, or likelihood fields are defined. `EvaluationReport` carries these fields
 through its `evaluation` property.
 

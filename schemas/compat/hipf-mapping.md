@@ -6,5 +6,5 @@ See `docs/schemas/compat/hipf-mapping.md` for the canonical field-by-field mappi
 
 HIPF profile schemas (primitive + HIPF vocabulary constraints) live in `hipf/`:
 - `hipf/change-entry.yaml`
-- `hipf/consequence-lattice.yaml`
+- `hipf/channel-scan-lattice.yaml`
 - `hipf/evaluation-context.yaml`

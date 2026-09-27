@@ -44,11 +44,11 @@ properties:
     items:
       $ref: "#/$defs/keyedItem"
     description: "Impact channels to scan when the lattice is engaged."
-  failure_modes:
+  pitfalls:
     type: array
     items:
       $ref: "#/$defs/keyedItem"
-    description: "Typical failure modes to check when the lattice is engaged."
+    description: "Typical analytical pitfalls: reasoning errors a claim commits when it ignores this lattice (e.g., rivals treated as passive). Not systemic outcomes of the governed domain."
   attributes:
     type: object
     additionalProperties: true
