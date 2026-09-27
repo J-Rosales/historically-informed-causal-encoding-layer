@@ -24,6 +24,7 @@ historically-informed-causal-encoding-layer/
     documents/
     shared/
     compat/
+      hipf/
   templates/
     README.md
     DOCUMENT_HEADER_TEMPLATE.md
@@ -40,5 +41,6 @@ historically-informed-causal-encoding-layer/
 
 Notes:
 - `schemas/` holds machine-readable schemas for primitives and document kinds.
+- `schemas/compat/hipf/` holds HIPF profile schemas (primitive + HIPF vocabulary via `allOf`).
 - `docs/schemas/` provides schema-specific guidance and HIPF compatibility notes.
 - `templates/` provides authoring patterns intended to produce schema-valid documents.
