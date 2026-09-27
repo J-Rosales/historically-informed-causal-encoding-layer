@@ -25,6 +25,33 @@ properties:
     items:
       type: string
       format: uuid
+  entry_kind:
+    type: string
+    minLength: 1
+    description: "Classification of the change under the governing framework (see schemas/compat/)."
+  temporal_ref:
+    type: string
+    format: uuid
+    description: "TemporalMarker binding the change in time."
+  participant_refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: "Entities or institutions participating in the change."
+  affected_refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: "Systems, constraints, or profiles whose state or rules the change alters."
+  trigger_tags:
+    type: array
+    items:
+      type: string
+      minLength: 1
+    uniqueItems: true
+    description: "Tags used to match lattices whose trigger_tags overlap."
   attributes:
     type: object
     additionalProperties: true

@@ -1,0 +1,30 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/compat/hipf/evaluation-context"
+title: "HIPF plausibility evaluation profile"
+description: "Constrains EvaluationContext to HIPF PLAUSIBILITY_EVALUATION_FRAMEWORK outcomes (§V) and CONSEQUENCE_LATTICES channel marks. HIPF does not predict or score; no probability fields exist."
+allOf:
+  - $ref: ../../primitives/evaluation-context.yaml
+  - type: object
+    required:
+      - verdict
+      - subject_refs
+    properties:
+      verdict:
+        enum:
+          - plausible
+          - conditionally_plausible
+          - implausible
+      subject_refs:
+        minItems: 1
+      lattice_scans:
+        items:
+          properties:
+            channel_marks:
+              items:
+                properties:
+                  mark:
+                    enum:
+                      - present
+                      - unknown
+                      - unknown_intentional_omission
+                      - not_applicable

@@ -7,7 +7,7 @@ This directory contains YAML-based schema files that define HICEL primitives and
 - `schemas/primitives/` holds one schema per primitive.
 - `schemas/documents/` holds one schema per document kind.
 - `schemas/shared/` contains shared schema fragments (e.g., metadata).
-- `schemas/compat/` stores HIPF compatibility references.
+- `schemas/compat/` stores HIPF compatibility references and HIPF profile schemas (`compat/hipf/`).
 
 ## Notes
 

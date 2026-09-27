@@ -25,9 +25,49 @@ properties:
     items:
       type: string
       format: uuid
+  lattice_kind:
+    type: string
+    minLength: 1
+    description: "Classification of the lattice under the governing framework (see schemas/compat/)."
+  scope:
+    type: string
+    description: "Domain the lattice governs and explicitly excludes."
+  trigger_tags:
+    type: array
+    items:
+      type: string
+      minLength: 1
+    uniqueItems: true
+    description: "Tags of change entries that engage this lattice."
+  channels:
+    type: array
+    items:
+      $ref: "#/$defs/keyedItem"
+    description: "Impact channels to scan when the lattice is engaged."
+  failure_modes:
+    type: array
+    items:
+      $ref: "#/$defs/keyedItem"
+    description: "Typical failure modes to check when the lattice is engaged."
   attributes:
     type: object
     additionalProperties: true
 patternProperties:
   "^x-": {}
 additionalProperties: false
+$defs:
+  keyedItem:
+    type: object
+    required:
+      - key
+      - label
+    properties:
+      key:
+        type: string
+        pattern: "^[a-z0-9][a-z0-9_-]*$"
+        description: "Local key, unique within the lattice (not a global identifier)."
+      label:
+        type: string
+      description:
+        type: string
+    additionalProperties: false

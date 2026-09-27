@@ -25,9 +25,88 @@ properties:
     items:
       type: string
       format: uuid
+  subject_refs:
+    type: array
+    items:
+      type: string
+      format: uuid
+    description: "Objects under evaluation (e.g., ChangeEntry IDs)."
+  verdict:
+    type: string
+    minLength: 1
+    description: "Qualitative outcome under the governing framework (see schemas/compat/). Not a probability or score."
+  rationale:
+    type: string
+    description: "Human-readable explanation of the verdict."
+  lattice_scans:
+    type: array
+    items:
+      $ref: "#/$defs/latticeScan"
+    description: "Per-lattice channel scans recorded for this evaluation."
   attributes:
     type: object
     additionalProperties: true
 patternProperties:
   "^x-": {}
 additionalProperties: false
+$defs:
+  latticeScan:
+    type: object
+    required:
+      - lattice_ref
+      - channel_marks
+    properties:
+      lattice_ref:
+        type: string
+        format: uuid
+      channel_marks:
+        type: array
+        items:
+          $ref: "#/$defs/channelMark"
+      flagged_failure_modes:
+        type: array
+        items:
+          type: string
+          pattern: "^[a-z0-9][a-z0-9_-]*$"
+        uniqueItems: true
+        description: "Keys of the lattice's failure_modes asserted for the subject."
+    additionalProperties: false
+  channelMark:
+    type: object
+    required:
+      - channel_key
+      - mark
+    properties:
+      channel_key:
+        type: string
+        pattern: "^[a-z0-9][a-z0-9_-]*$"
+      mark:
+        type: string
+        minLength: 1
+        description: "Scan result for the channel (vocabulary set in schemas/compat/)."
+      immediate:
+        type: string
+        description: "Immediate consequence."
+      delayed:
+        type: string
+        description: "Delayed consequence."
+      mitigations:
+        type: array
+        items:
+          $ref: "#/$defs/mitigation"
+    additionalProperties: false
+  mitigation:
+    type: object
+    required:
+      - description
+    properties:
+      description:
+        type: string
+        minLength: 1
+      refs:
+        type: array
+        items:
+          type: string
+          format: uuid
+        description: "Objects providing the structural basis for the mitigation."
+    additionalProperties: false

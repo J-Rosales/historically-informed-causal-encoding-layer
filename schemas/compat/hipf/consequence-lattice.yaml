@@ -1,0 +1,19 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/compat/hipf/consequence-lattice"
+title: "HIPF consequence lattice profile"
+description: "Constrains LatticeAnchor to a HIPF consequence lattice (validators/CONSEQUENCE_LATTICES.md): triggers, channels to scan, typical failure modes."
+allOf:
+  - $ref: ../../primitives/lattice-anchor.yaml
+  - type: object
+    required:
+      - lattice_kind
+      - trigger_tags
+      - channels
+      - failure_modes
+    properties:
+      lattice_kind:
+        const: consequence
+      trigger_tags:
+        minItems: 1
+      channels:
+        minItems: 1

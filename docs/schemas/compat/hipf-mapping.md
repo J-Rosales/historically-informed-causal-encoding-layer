@@ -17,6 +17,19 @@ This mapping describes a strict field-by-field alignment between HICEL schema fi
 | `refs` | `refs` | Cross-object linking. |
 | `attributes` | `data` | Payload-like neutral data container. |
 
+## HIPF profile schemas
+
+Primitives stay vocabulary-neutral; HIPF vocabularies live only in `schemas/compat/hipf/`.
+Each profile is `allOf` the primitive plus HIPF value constraints.
+
+| Profile | Primitive | HIPF source | Constrained values |
+| --- | --- | --- | --- |
+| `compat/hipf/change-entry.yaml` | `ChangeEntry` | `change_entries/HISTORICAL_CHANGE_ENTRY_FRAMEWORK.md` §II | `entry_kind`: `event`, `process`, `structural_transformation` |
+| `compat/hipf/consequence-lattice.yaml` | `LatticeAnchor` | `validators/CONSEQUENCE_LATTICES.md` | `lattice_kind`: `consequence`; triggers, channels, failure modes required |
+| `compat/hipf/evaluation-context.yaml` | `EvaluationContext` | `evaluation/PLAUSIBILITY_EVALUATION_FRAMEWORK.md` §V; `validators/CONSEQUENCE_LATTICES.md` (Usage) | `verdict`: `plausible`, `conditionally_plausible`, `implausible`; `mark`: `present`, `unknown`, `unknown_intentional_omission`, `not_applicable` |
+
+HIPF evaluates admissibility, not probability; no profile defines likelihood or score fields.
+
 ## Constraints enforced in schema
 
 - `type` is a constant per schema to enforce HIPF kind matching.

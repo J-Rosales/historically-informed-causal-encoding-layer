@@ -1,0 +1,15 @@
+$schema: "https://json-schema.org/draft/2020-12/schema"
+$id: "hicel/compat/hipf/change-entry"
+title: "HIPF ChangeEntry profile"
+description: "Constrains ChangeEntry to HIPF HISTORICAL_CHANGE_ENTRY_FRAMEWORK entry types. Condition and Crisis use ConditionObject and CrisisObject."
+allOf:
+  - $ref: ../../primitives/change-entry.yaml
+  - type: object
+    required:
+      - entry_kind
+    properties:
+      entry_kind:
+        enum:
+          - event
+          - process
+          - structural_transformation

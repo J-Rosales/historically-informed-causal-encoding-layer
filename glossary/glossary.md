@@ -9,5 +9,7 @@ This glossary defines non-world-specific terms used by HICEL.
 - **TemporalMarker**: Representation of time with uncertainty (date/range/ordering).
 - **ChangeEntry**: Event/process/transformation/condition/crisis that modifies constraints.
 - **DeltaEncoding**: Formal representation of how a change entry modifies state.
+- **ChannelMark**: Recorded scan result for one lattice channel within an evaluation (mark, consequences, mitigations).
+- **Profile schema**: A compat schema that applies an external framework's vocabulary to a neutral primitive via `allOf`.
 - **StateSlice**: Computed snapshot of active constraints/capabilities for a given time+scope.
 - **ExternalAuthorityRef**: A reference link to an external authority (e.g., HIPF section).
